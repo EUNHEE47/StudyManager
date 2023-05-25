@@ -1,0 +1,236 @@
+@font-face {
+  font-family: "Happiness-Sans-Title";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-color: #63707e;
+$body-color: #f2f6f5;
+$tab-back-color: #c8dad3;
+$hoverBack-color: #93b5b3;
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin btnBorder {
+  border: 1px solid $font-color;
+  border-radius: 5px;
+  background-color: $body-color;
+}
+
+@mixin btnHover {
+  background-color: $hoverBack-color;
+  color: $body-color;
+  transition: 0.5s;
+}
+
+* {
+  font-family: "Happiness-Sans-Title";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $font-color;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: $body-color;
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// header
+.header {
+  background-color: $tab-back-color;
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+}
+
+// login page
+.login-wrap {
+  @include flex();
+  height: 100%;
+  flex-direction: column;
+  div {
+    margin-bottom: 3em;
+  }
+}
+
+.login-form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-bottom: 1em;
+    @include btnBorder();
+  }
+  button {
+    @include btnBorder();
+    &:hover {
+      @include btnHover();
+    }
+  }
+}
+
+// sub page
+.sub-wrap {
+  @include flex();
+  flex-direction: column;
+  height: 100%;
+}
+
+.current {
+  @include btnBorder();
+  text-align: center;
+  padding: 1em;
+  margin-bottom: 5em;
+}
+
+.menu-box-wrap {
+  width: 100%;
+}
+
+.menu-box {
+  @include btnBorder();
+  @include flex();
+  height: 15em;
+  &:hover {
+    @include btnHover();
+    cursor: pointer;
+  }
+}
+
+// nav
+.menubar {
+  background-color: $tab-back-color;
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+  }
+  width: 10%;
+  div {
+    border: 3px double $font-color;
+    padding: 1em;
+    margin: 3em 0;
+    text-align: center;
+  }
+  button {
+    @include btnBorder();
+    padding: 0.2em;
+    &:hover {
+      @include btnHover();
+    }
+  }
+  li {
+    padding: 1em;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.activeBtn {
+  background-color: $body-color;
+}
+
+////////////////////////전체페이지
+.page-wrap {
+  display: flex;
+  height: 100vh;
+}
+
+.member,
+.seat,
+.reservation {
+  width: 90%;
+  padding-top: 3em;
+}
+
+//member
+.member-search-box {
+  float: right;
+  border-bottom: 2px solid $font-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3em;
+  width: 15em;
+  input {
+    border: none;
+    background-color: $body-color;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.member-table {
+  text-align: center;
+}
+
+.member-pagenation {
+  justify-content: center;
+}
+
+// seat
+
+.inner-seat {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &:nth-child(1) {
+    margin-top: 5em;
+  }
+}
+
+.room-num-box,
+.seat-num-box {
+  width: 10em;
+  height: 10em;
+  @include btnBorder();
+  margin: 0.5em;
+  @include flex();
+}
+
+// reservation
+
+.reservation {
+  // border: 1px solid red;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+}
+
+.mng-line {
+  @include flex();
+  text-align: center;
+  list-style: none;
+  margin-top: 2em;
+  padding: 0;
+}
+
+.seat-title {
+  border: 1px solid $font-color;
+  width: 5em;
+  margin-right: 1em;
+}
+
+.time {
+  border: 1px solid $font-color;
+  width: 2.5em;
+}
+
+.timeActive {
+  background-color: $font-color;
+}
